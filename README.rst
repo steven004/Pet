@@ -1,12 +1,6 @@
 Perl Engine for Testing
 ==================================
 
-.. image:: https://pypip.in/v/pet/badge.png
-    :target: https://crate.io/packages/pet/
-
-.. image:: https://pypip.in/d/pet/badge.png
-    :target: https://crate.io/packages/pet/
-
 PET (Perl Engine for Testing) implements a framework to write test scripts and
 record test results in different ways.
 
@@ -70,7 +64,7 @@ SYNOPSIS
      TestStart(User => 'Xin',
                TestPlan => 'Test Demo',
                  ReleaseNo => 'Pet V1.0',
-                 MailAddress => 'xin.li@sycamorenet.com');
+                 MailAddress => 'steven004@gmail.com');
 
      CaseStart("The 1st test case");
      {
