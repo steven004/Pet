@@ -1,0 +1,44 @@
+########################### General Macro ##############
+System_IP	172.21.6.225
+TCPReplayer1_IP	172.21.6.88
+TCPReplayer2_IP	172.21.6.89
+RN1_ID	201
+RN2_ID	202
+User_Name	xli
+PassWD	justguess
+PCAP_Path	"\\shared\\SQA_Share\\pcaps\\"
+CFG_PATH	"\\shared\\SQA_Share\\NodeConfig\\172.21.6.225\\"
+Config_Server	172.21.6.88
+FTP_User	xli
+FTP_PW		xli
+
+#########################################################
+
+CONFIG_MAP
+
+SYMBOL=SUT	TYPE=IQstream::Objects::System	Host=System_IP	Label=System User=admin	Passwd=admin
+SYMBOL=CN	TYPE=IQstream::Objects::CentralNode	Host=System_IP	Label=CN 	
+SYMBOL=SCM6	TYPE=IQstream::Objects::SCM	Host=System_IP	Index=6	Label=SCM6
+SYMBOL=SCM9	TYPE=IQstream::Objects::SCM	Host=System_IP	Index=6	Label=SCM9
+SYMBOL=CPM11	TYPE=IQstream::Objects::CPM	Host=System_IP	Index=11	Label=CPM11
+SYMBOL=CPM14	TYPE=IQstream::Objects::CPM	Host=System_IP	Index=14	Label=CPM14
+SYMBOL=DPM_a	TYPE=IQstream::Objects::DPM	Host=System_IP	Index=1	Label=DPMa
+SYMBOL=DPM_b	TYPE=IQstream::Objects::DPM	Host=System_IP	Index=4	Label=DPMb
+SYMBOL=DPM_c	TYPE=IQstream::Objects::DPM	Host=System_IP	Index=8	Label=DPMc
+
+SYMBOL=RN1	TYPE=IQstream::Objects::RemoteNode	Host=System_IP	Index=RN1_ID	Label=RN1
+SYMBOL=RN2	TYPE=IQstream::Objects::RemoteNode	Host=System_IP	Index=RN2_ID	Label=RN2
+
+SYMBOL=TcpReplayer1	TYPE=Server::TCPReplayer	Host=TCPReplayer1_IP	Index=1	Label=ReplayServer1	Template=M1_Oct1_5hours
+SYMBOL=TcpReplayer2	TYPE=Server::TCPReplayer	Host=TCPReplayer2_IP	Index=1	Label=ReplayServer2	Template=M1_Oct3_5hours
+
+SYMBOL=PCAP1	TYPE=Data::PcapFile	Label=Pcap1	Template=M1_Oct1_5hours
+SYMBOL=PCAP2	TYPE=Data::PcapFile	Label=Pcap2	Template=M1_Oct3_5hours
+SYMBOL=CONFIG	TYPE=Data::ConfigFile	Host=System_IP	Label=Config	Template=Config_Server
+
+#############################################
+
+CONFIG_TEMPLATE
+TEMPLATE=M1_Oct1_5hours	Name	PCAP1	-host	TCPReplayer1_IP	-user	User_Name	-passwd	PassWD	-path	PCAP_Path	-filename	M1_Oct1_5hours.pcap	
+TEMPLATE=M1_Oct3_5hours	Name	PCAP2	-host	TCPReplayer2_IP	-user	User_Name	-passwd	PassWD	-path	PCAP_Path	-filename	M1_Oct3_5hours.pcap	
+TEMPLATE=Config_Server	Name	Config	-host	Config_Server	-user	FTP_User	-passwd	FTP_PW	-path	CFG_PATH	-filename	M1_Lab_Trial_CFG.xml

@@ -1,0 +1,29 @@
+From: pet@gmail.com
+Sent: 2010��2��21�������� 17:38
+To: Li, Xin (Steven)
+Subject: Test Recorder Test v1.0
+
+Test Task Information:
+	_desc:	This program is to test the TestRecorder Module, to test all the global subroutines.
+	MailAddress:	xin.li@sycamorenet.com
+	_host:	
+	_report_path:	C:/tmp/pet_output/xli/
+	_name:	Test Recorder Test v1.0
+	TestPlan:	Test 2
+	_build:	-1.0
+	_release:	SN9K 3.0-
+	_user:	Xin
+
+
+ ------------------ TEST END ----------------
+
+Test Summary Information:
+	 _fail_rate:	0.5
+	 _cases_failed:	2
+	 _cases_unrun:	N/A
+	 _pass_rate:	0.5
+	 _cases_passed:	2
+	 _cases_all:	4
+	 _test_finished:	Finished
+
+

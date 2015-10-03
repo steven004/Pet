@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- Test Engineer: 	Li, Xin   -->
+<!-- Program: 		Pet Example   -->
+<!-- Description: Just do some mathematics	  -->
+<TestPlan SuiteFile="..\TestSuite.pl" 
+	PhysicalTestBedFile="..\PhysicalTestBeds\Math1TestBed.pl">
+<TestCases>
+  		<File>..\TestCases\MathCases-1.pl</File>
+		<File>..\TestCases\MathCases-2.pl</File>
+</TestCases>
+ </TestPlan>

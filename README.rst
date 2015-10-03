@@ -8,6 +8,8 @@ Pet can be used as an engine, and also can be used as a Perl module, built in yo
 
 For more information, see Document folder to get the implementation and user guide.
 
+**This module is free to use, but I have no time to maintain. If anybody is interested, please let me know**
+
 NAME
 ----
 

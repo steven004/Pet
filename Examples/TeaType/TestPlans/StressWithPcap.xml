@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- Test Engineer: 	Li, Xin   -->
+<!-- Program: 		Pet Example   -->
+<!-- Description: 	Tea-type example test plan  -->
+<TestPlan SuiteFile="..\TestSuite.pl" 
+	PhysicalTestBedFile="..\PhysicalTestBeds\M1_5Hours_TCPReplay225.ttb">
+<TestCases>
+  		<File>..\TestCases\CNstress.ttc</File>
+		<File>..\TestCases\RNstress.pl</File>
+</TestCases>
+ </TestPlan>

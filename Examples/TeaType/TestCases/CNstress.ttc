@@ -1,0 +1,52 @@
+Name	CN_Stress Test with PCAP running
+Setup	M1_Lab_PCAP Replay test bed
+Purpose	Stress test
+
+TEST_START
+
+Testcase::procedure::TestBed Configuration
+SUT::GetAlarms!~Critical
+CN::GetAttributes::OperStatus==up
+RN1::GetAttributes::OperStatus==up
+RN2::GetAttributes::OperStatus==up
+CONFIG::Download
+test::wait::200
+SUT::Reboot::Cold
+test::wait::200 
+
+Testcase::procedure::Run PCAP File 1
+PCAP1::Start::loop::10
+test::Timer::Start
+test::wait::200
+CN::CurrentTrafficKPI>0.0
+test::Timer::waitto::20m
+CN::CurrentTrafficKPI>10%
+RN1::CurrentTrafficKPI>15%
+RN2::CurrentTrafficKPI>7%
+test::Timer::waitto::2h30m
+CN::CurrentTrafficKPI>20%
+
+Testcase::procedure::Run PCAP1 and PCAP2 simultaneously
+PCAP2::Start::loop::5
+test::Timer::waitto::3h
+CN::CurrentTrafficKPI>30%
+
+Testcase::procedure::Switch Over test while running PCAP
+SCM6::reboot::soft
+SCM9::GetAttributes::OperStatus==up
+CN::CurrentTrafficKPI>30%
+test::wait::50
+SCM9::reboot::soft
+SCM6::GetAttributes::OperStatus==up
+CPM11::reboot::soft
+CPM14::GetAttributes::OperStatus==up
+CPM14::GetAttributes::RedundancyStatus==active
+CN::CurrentTrafficKPI>30%
+test::wait::50
+SUT::GetAlarms==NULL
+
+Testcase::procedure::Recover the test bed
+PCAP1::stop
+PCAP2::stop
+test::wait::50
+SUT::GetAlarms==NULL
